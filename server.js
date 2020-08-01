@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var express = require("express");
-
+let myEmpArr = [];
 
 // Create express app instance.
 var app = express();

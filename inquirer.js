@@ -130,5 +130,17 @@ function updateMan(){
 //Quitting function 
 function quit(){
     //repeat start function when user is done with one action and see if they want to quit or continue other functions
-
+    inquirer.prompt({
+        type: "list",
+        message: "Are you finished?",
+        name: "endOptions",
+        choices:["Yes", "No"]
+    }).then(function(quitting){
+        if(quitting.endOptions === "No"){
+            start();
+        }else if(quitting.endOptions === "Yes"){
+            //console.table(all employee info)
+            console.log("All Done!");
+        }
+    });
 }

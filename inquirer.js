@@ -1,4 +1,6 @@
 const inquirer = require("inquirer");
+const { query } = require("express");
+const { createConnection } = require("mysql");
 
 //array for new employees
 let myEmpArr = [];
@@ -65,11 +67,60 @@ function start(){
 //Adding employees function
 function addEmp(){
     //ask users for employee info using inquirer and query connection add the data to the mysql tables 
-    
+    const questions = 
+            [{
+                type: "input",
+                message: "What is the employee's first name?",
+                name: "firstName"
+            },
+            {
+                type: "input",
+                message: "What is the employee's last name?",
+                name: "lastName"
+            },
+            {
+                type: "input",
+                message: "What is the employee's role id?",
+                name: "role"
+                //Should i have choices be roles form sql roles table? 
+                //or have hard coded choices here then add into sql roles table
+            },
+            {
+                type: "input",
+                message: "What is the employee's manager id?",
+                name: "manId"
+            }];
+
+    inquirer.prompt(questions).then(function(empInfo){
+        //add empInfo to the table in sql
+
+        var queryEmp = connection.query(
+            "INSERT INTO employee SET ?", 
+            //do i need the question mark here?
+            {
+              first_name: empInfo.firstName,
+              last_name: empInfo.lastName,
+              role_id: empInfo.role,
+              manager_id: empInfo.manId
+            },
+            function(err, res) {
+              if (err) throw err;
+              console.log(res.affectedRows + " product inserted!\n");
+              // what is affectedRows?
+
+            }
+          );
+
+          console.log(queryEmp.sql);
+          //will this show the new employee added?
+
+    });
+
 
     //INSERT INTO department (name) VALUES ("Manufacturing");
 
     //call quit function to see if user wants to do other functions or quit
+    quit();
 }
 
 

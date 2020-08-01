@@ -100,7 +100,6 @@ function addEmp(){
 
     });
 
-
     //INSERT INTO department (name) VALUES ("Manufacturing");
 
     //call quit function to see if user wants to do other functions or quit

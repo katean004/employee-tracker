@@ -27,7 +27,7 @@ var connection = mysql.createConnection({
     user: "root",
   
     // Your password
-    password: "",
-    database: "greatBay_DB"
+    password: "GakuenAlice123*",
+    database: "emptrack_db"
   });
   

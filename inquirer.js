@@ -2,9 +2,6 @@ const inquirer = require("inquirer");
 const { query } = require("express");
 const { createConnection } = require("mysql");
 
-//array for new employees
-let myEmpArr = [];
-
 //Run start function 
 start();
 
@@ -20,45 +17,32 @@ function start(){
     }).then(function(startAns){
         if(startAns.startOptions === "Add Employee"){
             //run function that adds employee
-            console.log("Adding employee");
-
             addEmp();
 
         }else if(startAns.startOptions === "Delete Employee"){
             //run function that deletes employee
-            console.log("Deleting employee");
-
             deleteEmp();
 
         }else if(startAns.startOptions === "View All Employees"){
             //run function that views employee
-            console.log("Viewing all employees");
-
             viewAllEmp();
 
         }else if(startAns.startOptions === "View All Employees By Department"){
             //run function that views employee
-            console.log("Viewing all employees by department");
-
             viewDeptEmp();
 
         }else if(startAns.startOptions === "View All Employees By Manager"){
             //run function that views employee
-            console.log("Viewing all employees by manager");
-
             viewManEmp();
 
         }else if(startAns.startOptions === "Update Employee Role"){
             //run function that views employee
-            console.log("Updating employee role");
-
             updateRole();
 
         }else if(startAns.startOptions === "Update Employee Manager"){
             //run function that views employee
-            console.log("Updating employee manager");
-
             updateMan();
+
         }
     });
 
@@ -126,6 +110,8 @@ function addEmp(){
 
 //Deleting employees function
 function deleteEmp(){
+    console.log("Deleting employee");
+
     //query connection to mysql and show whole employee table of employee choices
     //DELETE FROM table_names WHERE refer to employee id or id...
 
@@ -135,6 +121,8 @@ function deleteEmp(){
 
 //Viewing all employees function 
 function viewAllEmp(){
+    console.log("Viewing all employees");
+
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)
     //view by id, first_name, last_name, title, department, salary, manager
@@ -144,6 +132,8 @@ function viewAllEmp(){
 
 //Viewing employees by department function 
 function viewDeptEmp(){
+    console.log("Viewing all employees by department");
+
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)
     //view by id, first_name, last_name, title, department, salary, manager
@@ -153,6 +143,8 @@ function viewDeptEmp(){
 
 //Viewing employees by manager function 
 function viewManEmp(){
+    console.log("Viewing all employees by manager");
+
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)
     //view by id, first_name, last_name, title, department, salary, manager
@@ -162,6 +154,8 @@ function viewManEmp(){
 
 //Update employee role function
 function updateRole(){
+    console.log("Updating employee role");
+
     //choose employee to update 
     //query connection UPDATE table_name SET row_data = "new data" WHERE id = 2
 
@@ -170,6 +164,8 @@ function updateRole(){
 
 //Update employee manager function
 function updateMan(){
+    console.log("Updating employee manager");
+
     //choose employee to update 
     //query connection UPDATE table_name SET row_data = "new data" WHERE id = 2
 

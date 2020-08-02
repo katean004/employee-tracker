@@ -36,7 +36,8 @@ function start(){
         message: "What would you like to do?",
         name: "startOptions",
         choices:["Add Employee", "Delete Employee", "View All Employees", "View All Employees By Department", 
-        "View All Employees By Manager", "Update Employee Role", "Update Employee Manager","Add Roles"]
+        "View All Employees By Manager", "Update Employee Role", "Update Employee Manager", 
+        "Add Roles", "Add Department","View Departments", "View Roles"]
     }).then(function(startAns){
         if(startAns.startOptions === "Add Employee"){
             //run function that adds employee
@@ -67,13 +68,25 @@ function start(){
             updateMan();
 
         }else if(startAns.startOptions === "Add Roles"){
+            //run function that adds roles
             addRoles()
-        }
+
+        }else if(startAns.startOptions === "Add Department"){
+            //run function that adds department
+
+        }else if(startAns.startOptions === "View Department"){
+            //run function that views departments
+            viewDept();
+
+        }else if(startAns.startOptions === "View Roles"){
+            //run function that views roles
+
+      }
     });
 
 }
 
-//Adding employees function
+//Adding employees function (DONE)
 function addEmp(){
 
   connection.query("SELECT * FROM roles",function(err,res){
@@ -176,7 +189,7 @@ function viewAllEmp(){
     //call quit function to see if user wants to do other functions or quit    
 }
 
-//Viewing employees by department function 
+//Viewing employees by department function (BONUS)
 function viewDeptEmp(){
     console.log("Viewing all employees by department");
 
@@ -187,7 +200,7 @@ function viewDeptEmp(){
     //call quit function to see if user wants to do other functions or quit    
 }
 
-//Viewing employees by manager function 
+//Viewing employees by manager function (BONUS)
 function viewManEmp(){
     console.log("Viewing all employees by manager");
 
@@ -198,12 +211,10 @@ function viewManEmp(){
     //call quit function to see if user wants to do other functions or quit    
 }
 
-function viewDept
-
-//Update employee role function
+//Update employee role function (DONE)
 function updateRole(){
-    console.log("Updating employee role");
-    connection.query("SELECT * FROM roles",function(err,res){
+
+  connection.query("SELECT * FROM roles",function(err,res){
       if (err) throw err
     
       let myRoles = res.map(function(role){
@@ -222,7 +233,7 @@ function updateRole(){
                   value: emp.id
                  })
                  //when user chooses dept name inquirer will choose the department id for them
-        })
+        });
         
       
       inquirer.prompt([
@@ -236,7 +247,7 @@ function updateRole(){
       },
       {
           type: "list",
-          message: "What is the employee'snew role?",
+          message: "What is the employee's new role?",
           name: "newRole",
           choices:myRoles
       
@@ -258,20 +269,18 @@ function updateRole(){
           if (err) throw err;
           console.log(res.affectedRows + " product inserted!\n");
           
-          // what is affectedRows?
-          quit();
-        }
-      )
+          //call quit function to see if user wants to do other functions or quit  
+          quit(); 
+        })
       })
-
+    
       })
-      
+    
     })
-
-    //call quit function to see if user wants to do other functions or quit    
+  
 }
 
-//Update employee manager function
+//Update employee manager function (BONUS)
 function updateMan(){
     console.log("Updating employee manager");
 
@@ -281,7 +290,7 @@ function updateMan(){
     //call quit function to see if user wants to do other functions or quit
 }
 
-//Add roles function
+//Add roles function (DONE)
 function addRoles(){
 connection.query("SELECT * FROM department",function(err,res){
   if (err) throw err
@@ -326,7 +335,30 @@ connection.query("SELECT * FROM department",function(err,res){
 });
 }
 
-//Quit function 
+//Add department function 
+function addDept(){
+  console.log("adding department");
+
+}
+
+//View departments function
+function viewDept(){
+  connection.query("SELECT * FROM department", function(err,res){
+    if (err) throw err
+  
+    //return and show departments
+    console.log(res);
+
+  });
+}
+
+//View roles function
+function viewRoles(){
+  console.log("viewing roles");
+
+}
+
+//Quit function (DONE)
 function quit(){
     //repeat start function when user is done with one action and see if they want to quit or continue other functions
     inquirer.prompt({

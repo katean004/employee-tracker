@@ -73,7 +73,7 @@ function start(){
 
         }else if(startAns.startOptions === "Add Department"){
             //run function that adds department
-            
+            addDept();
 
         }else if(startAns.startOptions === "View Departments"){
             //run function that views departments
@@ -178,7 +178,6 @@ function deleteEmp(){
 
     //call quit function to see if user wants to do other functions or quit
 }
-
 
 //Viewing all employees function 
 function viewAllEmp(){
@@ -337,30 +336,45 @@ connection.query("SELECT * FROM department",function(err,res){
 });
 }
 
-//Add department function 
+//Add department function (DONE)
 function addDept(){
-  console.log("adding department");
-
-}
+  
+    inquirer.prompt([
+      {
+        type:"input",
+        name:"deptName",
+        message:"What department would you like to add?"
+      }
+    ]).then(deptRes => {
+      console.log(deptRes);
+      connection.query("INSERT INTO department SET ?",
+      {
+        name: deptRes.deptName
+      })
+    }).then(roleErr =>{
+      if (roleErr) throw roleErr
+      quit();
+    });
+  }
 
 //View departments function (DONE)
 function viewDept(){
-  connection.query("SELECT *  FROM department", function(err,res){
+  connection.query("SELECT * FROM department", function(err,res){
     if (err) throw err;
   
     //return and show departments
-    console.log(res);
+    console.table(res);
     quit();
   });
 }
 
 //View roles function (DONE)
 function viewRoles(){
-  connection.query("SELECT title FROM roles", function(err,res){
+  connection.query("SELECT * FROM roles", function(err,res){
     if (err) throw err;
   
     //return and show departments
-    console.log(res);
+    console.table(res);
     quit();
   });
 }

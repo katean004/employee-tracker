@@ -35,9 +35,9 @@ function start(){
         type: "list",
         message: "What would you like to do?",
         name: "startOptions",
-        choices:["Add Employee", "Delete Employee", "View All Employees", "View All Employees By Department", 
+        choices:["Add Employee", "Delete Employee", "View All Employees", "View Departments", "View Roles", "View All Employees By Department", 
         "View All Employees By Manager", "Update Employee Role", "Update Employee Manager", 
-        "Add Roles", "Add Department","View Departments", "View Roles"]
+        "Add Roles", "Add Department"]
     }).then(function(startAns){
         if(startAns.startOptions === "Add Employee"){
             //run function that adds employee
@@ -74,7 +74,7 @@ function start(){
         }else if(startAns.startOptions === "Add Department"){
             //run function that adds department
 
-        }else if(startAns.startOptions === "View Department"){
+        }else if(startAns.startOptions === "View Departments"){
             //run function that views departments
             viewDept();
 
@@ -341,14 +341,14 @@ function addDept(){
 
 }
 
-//View departments function
+//View departments function (DONE)
 function viewDept(){
-  connection.query("SELECT * FROM department", function(err,res){
-    if (err) throw err
+  connection.query("SELECT *  FROM department", function(err,res){
+    if (err) throw err;
   
     //return and show departments
     console.log(res);
-
+    quit();
   });
 }
 

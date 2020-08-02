@@ -181,16 +181,21 @@ function deleteEmp(){
 
 //Viewing all employees function 
 function viewAllEmp(){
-    console.log("Viewing all employees");
 
 
-    //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
-    //join all the info we need from each table 
-    //into new table with id, first_name, last_name, title, department, salary, manager
-
-    //console.table(employee info)
+  //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
+  //join all the info into new table with id, first_name, last_name, title, department, salary, manager
+  connection.query("SELECT * FROM department", function(err,res){
+    if (err) throw err;
+  
+    //show all employee info in table format
+    console.table(res);
 
     //call quit function to see if user wants to do other functions or quit    
+    quit();
+
+  });
+
 }
 
 //Viewing employees by department function (BONUS)

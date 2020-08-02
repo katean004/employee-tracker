@@ -5,27 +5,27 @@ CREATE DATABASE emptrack_db;
 USE emptrack_db;
 
 CREATE TABLE department (
-  id int NOT NULL AUTO_INCREMENT,
+  dept_id int NOT NULL AUTO_INCREMENT,
   name varchar(30) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (dept_id)
 );
 
 CREATE TABLE roles (
-  id int NOT NULL AUTO_INCREMENT,
+  roles_id int NOT NULL AUTO_INCREMENT,
   title varchar(30) NOT NULL,
   salary DECIMAL(6, 2),
   department_id INT,
-  FOREIGN KEY(department_id) REFERENCES department(id),
-  PRIMARY KEY (id)
+  FOREIGN KEY(department_id) REFERENCES department(dept_id),
+  PRIMARY KEY (roles_id)
 );
 
 CREATE TABLE employee (
-  id int NOT NULL AUTO_INCREMENT,
+  emp_id int NOT NULL AUTO_INCREMENT,
   first_name varchar(30) NOT NULL,
   last_name varchar(30) NOT NULL,
   role_id INT NOT NULL,
   manager_id INT,
-  FOREIGN KEY(role_id) REFERENCES roles(id),
-  FOREIGN KEY(manager_id) REFERENCES employee(id), 
-  PRIMARY KEY (id)
+  FOREIGN KEY(role_id) REFERENCES roles(roles_id),
+  FOREIGN KEY(manager_id) REFERENCES employee(emp_id), 
+  PRIMARY KEY (emp_id)
 );

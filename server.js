@@ -73,6 +73,7 @@ function start(){
 
         }else if(startAns.startOptions === "Add Department"){
             //run function that adds department
+            
 
         }else if(startAns.startOptions === "View Departments"){
             //run function that views departments
@@ -80,6 +81,7 @@ function start(){
 
         }else if(startAns.startOptions === "View Roles"){
             //run function that views roles
+            viewRoles();
 
       }
     });
@@ -352,11 +354,17 @@ function viewDept(){
   });
 }
 
-//View roles function
+//View roles function (DONE)
 function viewRoles(){
-  console.log("viewing roles");
-
+  connection.query("SELECT title FROM roles", function(err,res){
+    if (err) throw err;
+  
+    //return and show departments
+    console.log(res);
+    quit();
+  });
 }
+
 
 //Quit function (DONE)
 function quit(){

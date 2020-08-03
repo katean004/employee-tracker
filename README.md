@@ -15,13 +15,13 @@
 - 
 
 ## Description
-A Content Management System that helps employers to manage (add, view, delete) employee information such as their name, department, role, salary, and their employee id. 
+A Content Management System that helps employers to manage (add and view) employee information such as their name, department, role, salary, and their employee id. 
 
 ## Installation 
 Install node, inquirer, express, mysql npms before usage. 
 
 ## Test 
-In the terminal of the server, run "node server.js" and note any errors.
+In the terminal of the server, run "node server.js" or "npm start" and note any errors.
 
 ## Usage
 Run npm start in the terminal and answer prompted questions. Refer to walkthrough video.

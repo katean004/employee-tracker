@@ -109,7 +109,7 @@ function addEmp(){
   },
   {
       type: "list",
-      message: "What is the employee's role id?",
+      message: "What is the employee's role?",
       name: "role",
       choices:myRoles
       //Should i have choices be roles form sql roles table? 

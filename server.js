@@ -97,7 +97,7 @@ function addEmp(){
     let myRoles = res.map(function(role){
       return({
               name:role.title,
-              value: role.id
+              value: role.roles_id
              })
              //when user chooses dept name inquirer will choose the department id for them
     })
@@ -107,7 +107,7 @@ function addEmp(){
       let myEmployees = res.map(function(emp){
         return({
                 name:`${emp.first_name} ${emp.last_name}`,
-                value: emp.id
+                value: emp.emp_id
                })
                //when user chooses dept name inquirer will choose the department id for them
       })
@@ -171,7 +171,7 @@ console.log(queryEmp.sql);
 
 //Deleting employees function (Bonus, to be added later)
 function deleteEmp(){
-    console.log("Deleting employee");
+    console.log("Adding this function later");
 
     //query connection to mysql and show whole employee table of employee choices
     //DELETE FROM table_names WHERE refer to employee id or id...
@@ -238,7 +238,7 @@ function updateRole(){
       let myRoles = res.map(function(role){
         return({
                 name:role.title,
-                value: role.id
+                value: role.roles_id
                })
                //when user chooses dept name inquirer will choose the department id for them
       })
@@ -248,7 +248,7 @@ function updateRole(){
         let myEmployees = res.map(function(emp){
           return({
                   name:`${emp.first_name} ${emp.last_name}`,
-                  value: emp.id
+                  value: emp.emp_id
                  })
                  //when user chooses dept name inquirer will choose the department id for them
         });
@@ -280,7 +280,7 @@ function updateRole(){
             role_id : ans.newRole
           },
           {
-            id: ans.emp
+            emp_id: ans.emp
           }
       ],
         function(err, res) {
@@ -317,7 +317,7 @@ connection.query("SELECT * FROM department",function(err,res){
   let myDepartments = res.map(function(dep){
     return({
             name:dep.name,
-            value: dep.id
+            value: dep.dept_id
            })
            //when user chooses dept name inquirer will choose the department id for them
   })
@@ -331,7 +331,7 @@ connection.query("SELECT * FROM department",function(err,res){
     {
       type:"input",
       name:"salary",
-      message:"what is the salary for this role?"
+      message:"what is the hourly wage for this role?"
     },
     {
       type:"list",
@@ -349,7 +349,7 @@ connection.query("SELECT * FROM department",function(err,res){
     })
   }).then(roleErr =>{
     if (roleErr) throw roleErr
-    start();
+    quit();
   })
 });
 }

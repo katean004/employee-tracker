@@ -23,12 +23,12 @@ connection.connect(function(err) {
   }
 
   console.log("connected as id " + connection.threadId);
-  start()
+  start();
 });
 
 
 
-//Ask user what to do
+//Start function, asks user what to do
 function start(){
 
     inquirer.prompt({
@@ -169,7 +169,7 @@ console.log(queryEmp.sql);
 }
 
 
-//Deleting employees function (Bonus)
+//Deleting employees function (Bonus, to be added later)
 function deleteEmp(){
     console.log("Deleting employee");
 
@@ -177,6 +177,7 @@ function deleteEmp(){
     //DELETE FROM table_names WHERE refer to employee id or id...
 
     //call quit function to see if user wants to do other functions or quit
+    quit();
 }
 
 //Viewing all employees function (DONE)
@@ -204,7 +205,7 @@ function viewAllEmp(){
 
 }
 
-//Viewing employees by department function (BONUS, to be completed later)
+//Viewing employees by department function (BONUS, to be added later)
 function viewDeptEmp(){
     console.log("This function will be added later");
 
@@ -212,18 +213,20 @@ function viewDeptEmp(){
     //console.table(employee info)
     //view by id, first_name, last_name, title, department, salary, manager
 
-    //call quit function to see if user wants to do other functions or quit    
+    //call quit function to see if user wants to do other functions or quit
+    quit();        
 }
 
-//Viewing employees by manager function (BONUS, to be completed later)
+//Viewing employees by manager function (BONUS, to be added later)
 function viewManEmp(){
     console.log("This function will be added later");
-
+    
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)
     //view by id, first_name, last_name, title, department, salary, manager
 
-    //call quit function to see if user wants to do other functions or quit    
+    //call quit function to see if user wants to do other functions or quit
+    quit();    
 }
 
 //Update employee role function (DONE)
@@ -295,14 +298,15 @@ function updateRole(){
   
 }
 
-//Update employee manager function (BONUS)
+//Update employee manager function (BONUS, to be added later)
 function updateMan(){
-    console.log("Updating employee manager");
+    console.log("This function will be added later");
 
     //choose employee to update 
     //query connection UPDATE table_name SET row_data = "new data" WHERE id = 2
 
     //call quit function to see if user wants to do other functions or quit
+    quit();    
 }
 
 //Add roles function (DONE)

@@ -12,7 +12,7 @@
 
 
 ## Walkthrough Video
-- 
+- https://drive.google.com/file/d/1k_PdSfMDnnxgt3ILmzccXH8BdugeJUvZ/view
 
 ## Description
 A Content Management System that helps employers to manage (add, view, and update) employee information such as their name, department, role, salary, and their employee id. 

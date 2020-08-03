@@ -35,37 +35,20 @@ function start(){
         type: "list",
         message: "What would you like to do?",
         name: "startOptions",
-        choices:["Add Employee", "Delete Employee", "View All Employees", "View Departments", "View Roles", "View All Employees By Department", 
-        "View All Employees By Manager", "Update Employee Role", "Update Employee Manager", 
-        "Add Roles", "Add Department"]
+        choices:["Add Employee", "View All Employees", "View Departments", "View Roles", 
+        "Update Employee Role", "Add Roles", "Add Department"]
     }).then(function(startAns){
         if(startAns.startOptions === "Add Employee"){
             //run function that adds employee
             addEmp();
 
-        }else if(startAns.startOptions === "Delete Employee"){
-            //run function that deletes employee
-            deleteEmp();
-
         }else if(startAns.startOptions === "View All Employees"){
             //run function that views employee
             viewAllEmp();
 
-        }else if(startAns.startOptions === "View All Employees By Department"){
-            //run function that views employee
-            viewDeptEmp();
-
-        }else if(startAns.startOptions === "View All Employees By Manager"){
-            //run function that views employee
-            viewManEmp();
-
         }else if(startAns.startOptions === "Update Employee Role"){
             //run function that views employee
             updateRole();
-
-        }else if(startAns.startOptions === "Update Employee Manager"){
-            //run function that views employee
-            updateMan();
 
         }else if(startAns.startOptions === "Add Roles"){
             //run function that adds roles

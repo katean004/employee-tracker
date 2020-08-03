@@ -1,6 +1,6 @@
 # Employee-Tracker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![](https://i.gyazo.com/b04a420053a28ddcce7bc73c6b7d08f0.png)
+![](https://i.gyazo.com/f7f8c8bc54b2816571724f1d35b533ea.png)
 
 ## Table of Contents
   - [Walkthrough Video](#walkthrough-video)

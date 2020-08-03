@@ -179,16 +179,18 @@ function deleteEmp(){
     //call quit function to see if user wants to do other functions or quit
 }
 
-//Viewing all employees function (IN PRGORESS)
+//Viewing all employees function (DONE)
 function viewAllEmp(){
 
 
   //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
   //join all the info into new table with id, first_name, last_name, title, department, salary, manager
   connection.query(
-    `SELECT dept_id, name, roles_id, title, salary, department_id 
-    FROM roles RIGHT JOIN department 
-    ON department.dept_id = roles.department_id;`, 
+    `SELECT name, title, salary, emp_id, first_name, last_name, manager_id
+    FROM roles LEFT JOIN department
+    ON roles.department_id = department.dept_id
+    RIGHT JOIN employee 
+    ON employee.role_id = roles.roles_id;`, 
     function(err, res){
     if (err) throw err;
 
@@ -202,9 +204,9 @@ function viewAllEmp(){
 
 }
 
-//Viewing employees by department function (BONUS)
+//Viewing employees by department function (BONUS, to be completed later)
 function viewDeptEmp(){
-    console.log("Viewing all employees by department");
+    console.log("This function will be added later");
 
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)
@@ -213,9 +215,9 @@ function viewDeptEmp(){
     //call quit function to see if user wants to do other functions or quit    
 }
 
-//Viewing employees by manager function (BONUS)
+//Viewing employees by manager function (BONUS, to be completed later)
 function viewManEmp(){
-    console.log("Viewing all employees by manager");
+    console.log("This function will be added later");
 
     //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
     //console.table(employee info)

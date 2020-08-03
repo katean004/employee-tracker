@@ -179,15 +179,19 @@ function deleteEmp(){
     //call quit function to see if user wants to do other functions or quit
 }
 
-//Viewing all employees function 
+//Viewing all employees function (IN PRGORESS)
 function viewAllEmp(){
 
 
   //query connection to mysql from department, roles, employee tables to view specific employee or all employees...
   //join all the info into new table with id, first_name, last_name, title, department, salary, manager
-  connection.query("SELECT * FROM department", function(err,res){
+  connection.query(
+    `SELECT dept_id, name, roles_id, title, salary, department_id 
+    FROM roles RIGHT JOIN department 
+    ON department.dept_id = roles.department_id;`, 
+    function(err, res){
     if (err) throw err;
-  
+
     //show all employee info in table format
     console.table(res);
 
